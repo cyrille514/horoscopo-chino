@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horóscopo Chino con Clases</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @layer base {
+         :root {
+          @apply text-sm;
+           line-height: 1.5;
+         }
+      }
+    </style>
+</head>
+<body class="bg-[url('usertech.jpg')] bg-cover bg-center bg-no-repeat w-full min-h-screen flex items-center justify-center min-h-screen p-4 sm:p-6 md:p-10">
+
+    <div class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-md w-full max-w-2xl transition-all duration-300">
+        
+        <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-center  text-yellow-900 mb-4 tracking-tight">
+            Cálculo del Horóscopo Chino
+        </h1>
+
+        
+        
+        <p class="text-sm sm:text-base font-bold text-gray-800 mb-6">
+            Para muestre el signo aproximado del horóscopo chino dado, indica tu año y mes de nacimiento y presiona el botón CALCULAR
+        </p>
+        
+        <form id="horoscopoForm" novalidate class="space-y-4 max-w-md">
+            <!-- Campo Mes -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
+                <label for="mes" class="text-sm sm:text-base text-black whitespace-nowrap">
+                    Mes de nacimiento (1-12):
+                </label>
+                <input type="number" id="mes" placeholder="Ej:0" min="1" max="12"
+                    class="w-full sm:w-28 text-sm sm:text-base rounded border-gray-400 p-1.5 border-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
+            </div>
+
+            <!-- Campo Año -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
+                <label for="anio" class="text-sm sm:text-base text-black whitespace-nowrap">
+                    Año de nacimiento (4 dígitos):
+                </label>
+                <input type="number" id="anio" placeholder="Ej:2000" min="2000" max="2026"
+                    class="w-full sm:w-28 text-sm sm:text-base rounded border-gray-400 p-1.5 border-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
+            </div>
+
+            <!-- Alerta de Error -->
+            <div id="mensajeError" class="text-xs sm:text-sm text-red-600 font-medium hidden pt-1"></div>
+
+            <div class="pt-2">
+                <button type="submit" 
+                    class="bg-blue-300 hover:bg-gray-200 active:bg-green-600 text-black font-medium text-xs sm:text-sm py-1.5 px-4 rounded border border-gray-400 shadow-sm transition duration-150 uppercase">
+                    CALCULAR
+                </button>
+            </div>
+        </form>
+
+        <!-- Bloque de Resultado -->
+        <div id="resultado" class="mt-8 border-t border-gray-200 pt-6 hidden transform scale-95 transition-all duration-300">
+            <h2 class="text-lg sm:text-xl md:text-2xl font-medium text-gray-900 mb-4 italic">
+                Tu signo es <span id="signoAnimal" class="font-bold not-italic"></span>
+            </h2>
+            
+            <div class="w-full max-w-[280px] sm:max-w-xs">
+                <img id="signoImagen" src="" alt="Signo zodiacal" class="w-full h-auto object-contain">
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
